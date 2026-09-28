@@ -1,0 +1,31 @@
+{
+  "name": "valuecraft-mail",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ValueCraft Minds enterprise webmail and email management system",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c cyan,green \"npm run dev -w @vcm-mail/backend\" \"npm run dev -w @vcm-mail/frontend\"",
+    "dev:backend": "npm run dev -w @vcm-mail/backend",
+    "dev:frontend": "npm run dev -w @vcm-mail/frontend",
+    "build": "npm run build -w @vcm-mail/frontend",
+    "start:backend": "npm run start -w @vcm-mail/backend",
+    "start:frontend": "npm run start -w @vcm-mail/frontend",
+    "test": "npm test -w @vcm-mail/backend",
+    "db:migrate": "npm run db:migrate -w @vcm-mail/backend",
+    "admin:create": "npm run admin:create -w @vcm-mail/backend --",
+    "secrets:generate": "npm run secrets:generate -w @vcm-mail/backend",
+    "format": "prettier --write \"backend/**/*.js\" \"frontend/**/*.{js,jsx,mjs,css}\"",
+    "mail:check": "npm run mail:check -w @vcm-mail/backend --"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "prettier": "^3.6.2"
+  }
+}

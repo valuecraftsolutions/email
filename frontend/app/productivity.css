@@ -1,0 +1,354 @@
+/* Search, contacts, signatures and preferences (Phase 4). Uses tokens from globals.css. */
+
+.muted {
+  color: var(--color-text-muted);
+}
+.is-pressed,
+.toolbar-button.is-pressed {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.page-header--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Top-bar search with actions and advanced panel */
+.search__input--with-actions {
+  padding-right: 64px;
+}
+.search__actions {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 2px;
+}
+.search-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 50;
+  min-width: min(520px, calc(100vw - 32px));
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+.search-panel__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+.search-panel__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.search-panel__field .field__input {
+  height: 36px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+.search-panel__checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+}
+.search-panel__checks label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.search-panel .dialog__actions {
+  margin-top: 16px;
+}
+.search--inline {
+  margin: 0;
+  max-width: 420px;
+}
+
+/* Recipient suggestions */
+.recipient-field__combo {
+  position: relative;
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+}
+.suggestions {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  z-index: 60;
+  width: min(360px, 80vw);
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+.suggestions__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+.suggestions__item.is-active {
+  background: var(--color-primary-soft);
+}
+.suggestions__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.suggestions__name {
+  color: var(--color-text);
+  font-weight: 600;
+}
+.suggestions__name,
+.suggestions__email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.suggestions__email {
+  font-size: 12px;
+}
+
+/* Contacts */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.filter-bar .search {
+  flex: 1;
+  min-width: 220px;
+}
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+.contact-row + .contact-row {
+  border-top: 1px solid var(--color-border);
+}
+.contact-row__main {
+  flex: 1;
+  min-width: 0;
+}
+.contact-row__name {
+  font-weight: 600;
+}
+.contact-row__meta {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contact-row__actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--color-border);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+.pager span {
+  margin-right: 8px;
+}
+.reader__add-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+/* Form dialog */
+.dialog--form {
+  width: min(640px, calc(100vw - 32px));
+}
+.dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.dialog__header .dialog__title {
+  margin: 0;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+}
+.form-grid__wide {
+  grid-column: 1 / -1;
+}
+.field__textarea {
+  height: auto;
+  min-height: 80px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+/* Choices (radio cards) */
+.choice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.choice-list--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+.choice-list--row .choice {
+  flex: 1;
+  min-width: 140px;
+}
+.choice input {
+  margin-top: 3px;
+  accent-color: var(--color-primary);
+}
+.choice.is-selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+.choice__label {
+  display: block;
+  font-weight: 600;
+}
+.choice__hint {
+  display: block;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* Signatures */
+.placeholder-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.chip--button {
+  padding: 0 10px;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+.chip--button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.editor-box {
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  margin-bottom: 12px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+}
+.code-input {
+  height: auto;
+  min-height: 260px;
+  padding: 12px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+}
+.html-frame {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+.signature-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* Compact list density */
+:root[data-density='compact'] .message-row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+:root[data-density='compact'] .message-row__preview {
+  display: none;
+}
+:root[data-density='compact'] .message-row .checkbox {
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .signature-editor {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .form-grid,
+  .search-panel__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .search-panel {
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    top: calc(var(--topbar-height) + 4px);
+    min-width: 0;
+  }
+  .contact-row {
+    flex-wrap: wrap;
+  }
+  .contact-row__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.npm-cache/
+
+# Environment and secrets - never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Build output
+.next/
+.next-*/
+out/
+dist/
+build/
+
+# Logs and runtime data
+logs/
+*.log
+npm-debug.log*
+tmp/
+uploads/
+
+# Test output
+coverage/
+test-results/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
